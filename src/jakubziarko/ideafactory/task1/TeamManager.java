@@ -3,18 +3,18 @@ package jakubziarko.ideafactory.task1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamManager extends AbstractEmployee implements Manager {
-    private List<Employee> managerEmployees = new ArrayList<>();
+public abstract class TeamManager extends AbstractEmployee implements Manager {
+    protected List<Employee> managerEmployees = new ArrayList<>();
 
-    TeamManager(String name, Role role) {
-        this.role=role;
-        this.name=name;
+    protected TeamManager(String name, Role role, String email, String Country, String University, Sex sex){
+        super(name,role,email,Country, University, sex);
     }
 
     @Override
     public void hire(Employee employee) {
-        if (canHire())
+        if (canHire(employee)) {
             managerEmployees.add(employee);
+        }
     }
 
     @Override
@@ -28,23 +28,18 @@ public class TeamManager extends AbstractEmployee implements Manager {
     }
 
     @Override
-    public boolean canHire() {
-        if (managerEmployees.size() < 20)
-            return true;
-        return false;
-    }
-
-    @Override
     public void giveTask(Task task) {
-        int mi=0;
-        int min_number_of_tasks=managerEmployees.get(mi).countAllUnitsOfWork();
-        for (int i=mi+1; i<managerEmployees.size(); i++){
-            if (managerEmployees.get(i).countAllUnitsOfWork() < min_number_of_tasks){
-                mi=i;
-                min_number_of_tasks=managerEmployees.get(i).countAllUnitsOfWork();
+        if (managerEmployees.size() > 0) {
+            int mi = 0;
+            int minNumberOfTasks = managerEmployees.get(mi).countAllUnitsOfWork();
+            for (int i = mi + 1; i < managerEmployees.size(); i++) {
+                if (managerEmployees.get(i).countAllUnitsOfWork() < minNumberOfTasks) {
+                    mi = i;
+                    minNumberOfTasks = managerEmployees.get(i).countAllUnitsOfWork();
+                }
             }
+            managerEmployees.get(mi).assign(task);
         }
-        managerEmployees.get(mi).assign(task);
     }
 
     @Override
@@ -63,6 +58,4 @@ public class TeamManager extends AbstractEmployee implements Manager {
         }
         return empolyeesDescription;
     }
-
-
 }

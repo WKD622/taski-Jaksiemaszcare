@@ -10,5 +10,8 @@ public interface Employee {
     Report reportWork();
     boolean equals(Employee employee);
     int countAllUnitsOfWork();
-    List<Task> getTasks();
+    public String getUniversity();
+    public Sex getSex();
+    public String getEmail();
+    public String getCountry();
 }
