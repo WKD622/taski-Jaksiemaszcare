@@ -1,8 +1,12 @@
 package jakubziarko.ideafactory.task1;
 
 public class Report {
-    int unitsOfWork;
-    String descriptionOfTasksDone;
+    private int unitsOfWork;
+    private String descriptionOfTasksDone;
+
+    public int getUnitsOfWork() {
+        return unitsOfWork;
+    }
 
     public Report() {
         unitsOfWork=0;

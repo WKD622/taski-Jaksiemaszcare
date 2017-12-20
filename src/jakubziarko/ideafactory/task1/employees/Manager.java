@@ -8,10 +8,13 @@ public interface Manager extends Employee {
     void fire(Employee employee);
     boolean canHire(Employee employee);
     void giveTask(Task task);
-    void getReport();
+
+    /**
+     * @param sortVersion
+     * 1 - sort by name
+     * 2 - sort by units of work done
+     * 3 - sort by role
+     */
+    void getReport(int sortVersion);
     String employeesToString();
-
-    public static class ManagerBuilder{
-
-    }
 }

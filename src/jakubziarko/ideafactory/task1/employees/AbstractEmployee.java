@@ -90,11 +90,11 @@ public abstract class AbstractEmployee implements Employee {
 
     public static class EmployeeBuilder {
         private final String name;
-        private Role role;
-        private String university;
-        private Sex sex;
-        private String email;
-        private String country;
+        private Role role = Role.developer;
+        private String university = "AGH";
+        private Sex sex = Sex.male;
+        private String email = null;
+        private String country = "Poland";
 
         public EmployeeBuilder(String name) {
             this.name = name;
@@ -135,6 +135,22 @@ public abstract class AbstractEmployee implements Employee {
 
         public AghManager buildAghManager(){
             return new AghManager(this);
+        }
+
+        public FemaleManager buildFemaleManager(){
+            return new FemaleManager(this);
+        }
+
+        public GmailManager buildGmailManager(){
+            return new GmailManager(this);
+        }
+
+        public MaleManager buildMaleManager(){
+            return new MaleManager(this);
+        }
+
+        public PolandManager buildPolandManager(){
+            return new PolandManager(this);
         }
     }
 }
