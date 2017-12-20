@@ -1,11 +1,11 @@
-package jakubziarko.ideafactory.task1.Managers;
+package jakubziarko.ideafactory.task1.employees;
 
 import jakubziarko.ideafactory.task1.*;
 
 public class FemaleManager extends TeamManager{
 
-    FemaleManager(String name, Role role, String email, String Country, String University, Sex sex){
-        super(name,role,email,Country, University, sex);
+    FemaleManager(EmployeeBuilder builder){
+        super(builder);
     }
 
     @Override

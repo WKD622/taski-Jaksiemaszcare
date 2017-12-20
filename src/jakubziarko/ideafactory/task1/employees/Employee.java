@@ -1,6 +1,9 @@
-package jakubziarko.ideafactory.task1;
+package jakubziarko.ideafactory.task1.employees;
 
-import java.util.List;
+import jakubziarko.ideafactory.task1.Report;
+import jakubziarko.ideafactory.task1.Role;
+import jakubziarko.ideafactory.task1.Sex;
+import jakubziarko.ideafactory.task1.Task;
 
 public interface Employee {
 

@@ -1,15 +1,11 @@
 package jakubziarko.ideafactory.task1;
 
-import jakubziarko.ideafactory.task1.Employees.JuniorDeveloper;
-import jakubziarko.ideafactory.task1.Employees.Developer;
-import jakubziarko.ideafactory.task1.Managers.AghManager;
+import jakubziarko.ideafactory.task1.employees.*;
 
 public class Program {
     public static void main(String[] args){
-        Manager manager = new AghManager("Jakub Ziarko", Role.team_manager, "kuba@gmail.com","Poland","AGH", Sex.male);
-        manager.hire(new Developer("Marek Gajęcki",Role.developer, "marek@o2.pl", "Poland", "AGH", Sex.male));
-        manager.hire(new Developer("Jarosław Brokuł", Role.developer, "jarek@gmail.com", "Poland", "AGH", Sex.male));
-        manager.hire(new JuniorDeveloper("Paweł Zeller", Role.junior_developer, "paweł@gmail.com", "Poland", "AGH", Sex.male));
+        Manager manager = new AbstractEmployee.EmployeeBuilder("Marek Gajęcki").email("asdf").sex(Sex.male).role(Role.team_manager).country("Poland").university("AGH").buildAghManager();
+        manager.hire(new AbstractEmployee.EmployeeBuilder("Jakub Ziarko").email("kuba@gmail").sex(Sex.male).role(Role.developer).country("Poland").university("AGH").buildDeveloper());
         manager.giveTask(new Task(8,"kupić bulki"));
         manager.giveTask(new Task(2,"kupić mleko"));
         manager.giveTask(new Task(6,"wynieść śmieci"));

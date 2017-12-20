@@ -1,4 +1,6 @@
-package jakubziarko.ideafactory.task1;
+package jakubziarko.ideafactory.task1.employees;
+
+import jakubziarko.ideafactory.task1.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +8,8 @@ import java.util.List;
 public abstract class TeamManager extends AbstractEmployee implements Manager {
     protected List<Employee> managerEmployees = new ArrayList<>();
 
-    protected TeamManager(String name, Role role, String email, String Country, String University, Sex sex){
-        super(name,role,email,Country, University, sex);
+    protected TeamManager(EmployeeBuilder builder){
+        super(builder);
     }
 
     @Override
@@ -58,4 +60,5 @@ public abstract class TeamManager extends AbstractEmployee implements Manager {
         }
         return empolyeesDescription;
     }
+
 }
